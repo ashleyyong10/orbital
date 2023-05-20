@@ -1,0 +1,28 @@
+const asyncHandler = require('express-async-handler')
+
+const getModule = asyncHandler(async (req,res) => {
+    res.send('get')
+})
+
+const setModule = asyncHandler(async (req,res) => {
+    if (!req.body.code) {
+        res.status(400).json({message: 'key in a module'})
+    }
+
+    res.status(200).json({message: 'module received'})
+})
+
+const updateModule = asyncHandler(async (req,res) => {
+    res.send('put')
+})
+
+const deleteModule = asyncHandler(async (req,res) => {
+    res.send('delete')
+})
+
+module.exports = {
+    getModule,
+    setModule,
+    updateModule,
+    deleteModule
+}
