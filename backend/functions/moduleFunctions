@@ -1,23 +1,44 @@
 const asyncHandler = require('express-async-handler')
+const Module = require('../models/moduleModel')
 
 const getModule = asyncHandler(async (req,res) => {
-    res.send('get')
+    const modules = await Module.find()
+    res.status(200).json(modules)
 })
 
 const setModule = asyncHandler(async (req,res) => {
-    if (!req.body.code) {
+    if (!req.body.text) {
         res.status(400).json({message: 'key in a module'})
     }
 
-    res.status(200).json({message: 'module received'})
+    const module = await Module.create({
+        text: req.body.text
+    })
+    res.status(200).json(module)
 })
 
 const updateModule = asyncHandler(async (req,res) => {
-    res.send('put')
+    const module = await Module.findById(req.params.id)
+
+    if(!module) {
+        res.status(400)
+        throw new Error('Module not found')
+    }
+    const updatedModule = await Module.findByIdAndUpdate(req.params.id, req.body, {new: true})
+
+    res.status(200).json(updatedModule)
 })
 
 const deleteModule = asyncHandler(async (req,res) => {
-    res.send('delete')
+    const module = await Module.findById(req.params.id)
+
+    if(!module) {
+        res.status(400)
+        throw new Error('Module not found')
+    }
+    await Module.findByIdAndRemove(req.params.id)
+
+    res.status(200).json({id : req.params.id})
 })
 
 module.exports = {
