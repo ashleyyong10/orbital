@@ -13,3 +13,4 @@ const moduleSchema = mongoose.Schema(
 )
 
 module.exports = mongoose.model('Module', moduleSchema)
+//first param shows informs which collection it links to
