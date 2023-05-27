@@ -1,14 +1,15 @@
-const express = require('express')
-const router = express.Router()
-const {getModule, setModule, updateModule, deleteModule} = require('../functions/moduleFunctions')
-const { protect } = require('../middleware/authMiddleware')
+const express = require("express");
+const router = express.Router();
+const {
+  getModules,
+  setModule,
+  updateModule,
+  deleteModule,
+} = require("../controllers/moduleController");
 
-router.get('/', protect, getModule )
+const { protect } = require("../middleware/authMiddleware");
 
-router.post('/', protect, setModule)
+router.route("/").get(protect, getModules).post(protect, setModule);
+router.route("/:id").delete(protect, deleteModule).put(protect, updateModule);
 
-router.put('/:id', protect, updateModule)
-
-router.delete('/:id', protect, deleteModule)
-
-module.exports = router
+module.exports = router;
