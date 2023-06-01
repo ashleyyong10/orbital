@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(
   cors({
-    origin: "https://orbital-testwithaaronfrontend.vercel.app",
+    origin: ["https://orbital-testwithaaronfrontend.vercel.app", "http://localhost:3000"]
   })
 );
 
