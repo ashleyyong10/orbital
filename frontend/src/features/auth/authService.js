@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://orbital-backend.vercel.app/api/users/";
+const API_URL = "https://orbital-backend-ten.vercel.app/api/users/";
 
 // Register user
 const register = async (userData) => {
