@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(
   cors({
-    origin: "https://orbital-frontend-one.vercel.app/",
+    origin: "https://orbital-frontend-one.vercel.app",
   })
 );
 
