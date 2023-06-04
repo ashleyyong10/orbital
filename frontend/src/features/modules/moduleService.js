@@ -1,6 +1,9 @@
 import axios from "axios";
 
-const API_URL = "https://orbital-backend-ten.vercel.app/api/modules/";
+const DEV_API = "http://localhost:8000"
+const PROD_API = "https://orbital-backend-ten.vercel.app"
+
+const API_URL = PROD_API + "/api/modules/"
 
 // Create new module
 const createModule = async (moduleData, token) => {
