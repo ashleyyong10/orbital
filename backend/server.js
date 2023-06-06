@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 const DEV_API = "http://localhost:3000"
-const PROD_API = "https://orbital-frontend-one.vercel.app"
+const PROD_API = "https://orbital-frontend-axsauce.vercel.app"
 
 app.use(
   cors({
