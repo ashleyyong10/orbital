@@ -11,6 +11,10 @@ const moduleSchema = mongoose.Schema(
       type: String,
       required: [true, 'Please add a text value'],
     },
+    grade: {
+      type: String,
+      required: [true, 'Please add a grade value'],
+    },
   },
   {
     timestamps: true,

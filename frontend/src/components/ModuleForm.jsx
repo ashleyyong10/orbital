@@ -3,16 +3,32 @@ import { useDispatch } from 'react-redux'
 import { createModule } from '../features/modules/moduleSlice'
 
 function ModuleForm() {
-  const [text, setText] = useState('')
+  const [formData, setFormData] = useState({
+    text: '',
+    grade: '',
+  })
+
+  const { text, grade } = formData
 
   const dispatch = useDispatch()
+
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
+  }
 
   const onSubmit = (e) => {
     e.preventDefault()
 
-    dispatch(createModule({ text }))
-    setText('')
+    dispatch(createModule({ text, grade }))
+    setFormData({
+      text: '',
+      grade: '',
+    })
   }
+
 
   return (
     <section className='form'>
@@ -24,7 +40,17 @@ function ModuleForm() {
             name='text'
             id='text'
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={onChange}
+          />
+        </div>
+        <div className='form-group'>
+          <label htmlFor='grade'>Grade (Eg: A, B+)</label>
+          <input
+            type='grade'
+            name='grade'
+            id='grade'
+            value={grade}
+            onChange={onChange}
           />
         </div>
         <div className='form-group'>
