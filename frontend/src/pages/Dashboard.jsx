@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import ModuleForm from '../components/ModuleForm'
 import ModuleItem from '../components/ModuleItem'
 import Spinner from '../components/Spinner'
 import { getModules, reset } from '../features/modules/moduleSlice'
@@ -41,8 +40,6 @@ function Dashboard() {
         <h1>Welcome {user && user.name}</h1>
         <p>Your Modules</p>
       </section>
-
-      <ModuleForm />
 
       <section className='content'>
         {modules.length > 0 ? (

@@ -6,7 +6,9 @@ function ModuleItem({ module }) {
 
   return (
     <div className='module'>
-      <h2>{module.text}</h2>
+      <h1>{module.text}</h1>
+      <h4>Grade: {module.grade}</h4>
+
       <button onClick={() => dispatch(deleteModule(module._id))} className='close'>
         X
       </button>

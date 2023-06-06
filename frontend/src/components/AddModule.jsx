@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createModule } from '../features/modules/moduleSlice'
 
-function ModuleForm() {
+function AddModule() {
   const [formData, setFormData] = useState({
     text: '',
     grade: '',
@@ -31,6 +31,11 @@ function ModuleForm() {
 
 
   return (
+    <>
+    <section className='heading'>
+        <p>Add completed modules</p>
+    </section>
+
     <section className='form'>
       <form onSubmit={onSubmit}>
         <div className='form-group'>
@@ -60,7 +65,8 @@ function ModuleForm() {
         </div>
       </form>
     </section>
+    </>
   )
 }
 
-export default ModuleForm
+export default AddModule

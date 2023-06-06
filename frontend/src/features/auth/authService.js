@@ -3,7 +3,7 @@ import axios from "axios";
 const DEV_API = "http://localhost:8000"
 const PROD_API = "https://orbital-backend-axsauce.vercel.app"
 
-const API_URL = PROD_API + "/api/users/"
+const API_URL = DEV_API + "/api/users/"
 
 // Register user
 const register = async (userData) => {

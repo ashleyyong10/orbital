@@ -97,17 +97,19 @@ function Register() {
               onChange={onChange}
             />
           </div>
+
           <div className='form-group'>
-            <input
-              type='major'
-              className='form-control'
-              id='major'
-              name='major'
-              value={major}
-              placeholder='Enter your major. (Eg: Computer Science)'
-              onChange={onChange}
-            />
+
+            <select name= "major" id="major">
+              <option value="" selected disabled hidden>Choose your major</option>
+              <option value="BZA">BZA</option>
+              <option value="CS">CS</option>
+              <option value="IS">IS</option>
+              <option value="CEG">CEG</option>
+            </select>
+
           </div>
+
           <div className='form-group'>
             <input
               type='password'
@@ -137,6 +139,7 @@ function Register() {
           </div>
         </form>
       </section>
+
     </>
   )
 }
