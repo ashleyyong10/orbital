@@ -19,7 +19,7 @@ const PROD_API = "https://orbital-frontend-axsauce.vercel.app"
 
 app.use(
   cors({
-    origin: DEV_API,
+    origin: PROD_API,
   })
 );
 
