@@ -23,7 +23,7 @@ function Header() {
         {user ? (
            <>
            <li>
-             <Link to='/settings'>Settings</Link>
+             <Link to='/update'>Update</Link>
            </li>
            <li>
            <button className='btn' onClick={onLogout}>

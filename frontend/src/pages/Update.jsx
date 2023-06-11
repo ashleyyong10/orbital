@@ -1,14 +1,21 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { FaUser } from 'react-icons/fa'
+import { register, reset } from '../features/auth/authSlice'
 import { createModule } from '../features/modules/moduleSlice'
 
-function AddModule() {
+
+function Update() {
+
   const [formData, setFormData] = useState({
     text: '',
+    type:'',
     grade: '',
   })
 
-  const { text, grade } = formData
+  const { text, type, grade } = formData
 
   const dispatch = useDispatch()
 
@@ -22,17 +29,19 @@ function AddModule() {
   const onSubmit = (e) => {
     e.preventDefault()
 
-    dispatch(createModule({ text, grade }))
+    dispatch(createModule({ text, type, grade }))
+    console.log({ text, type, grade })
     setFormData({
       text: '',
+      type: '',
       grade: '',
     })
   }
 
-
   return (
     <>
-    <section className='heading'>
+
+<section className='heading'>
         <p>Add completed modules</p>
     </section>
 
@@ -48,6 +57,19 @@ function AddModule() {
             onChange={onChange}
           />
         </div>
+        <div className='form-group'>
+
+          <select name= "type" id="type" value={type} onChange={onChange}>
+            <option value="" disabled hidden>Select module type</option>
+            <option value="Core">Core</option>
+            <option value="ID">ID</option>
+            <option value="CD">CD</option>
+            <option value="UE">UE</option>
+            <option value="GEA">GEA</option>
+            <option value="GEI">GEI</option>
+          </select>
+        </div>
+
         <div className='form-group'>
 
           <select name= "grade" id="grade" value={grade} onChange={onChange}>
@@ -68,8 +90,9 @@ function AddModule() {
         </div>
       </form>
     </section>
+  
     </>
   )
 }
 
-export default AddModule
+export default Update

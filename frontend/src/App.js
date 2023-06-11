@@ -5,7 +5,11 @@ import Header from "./components/Header";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Settings from "./pages/Settings";
+import Update from "./pages/Update";
+import CoreMods from "./pages/CoreMods";
+import Id from "./pages/Id";
+import Cd from "./pages/Cd";
+import Ue from "./pages/Ue";
 
 function App() {
   return (
@@ -17,7 +21,11 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/settings" element={<Settings />} />
+            <Route path="/update" element={<Update />} />
+            <Route path="/core" element={<CoreMods />} />
+            <Route path="/ue" element={<Ue />} />
+            <Route path="/id" element={<Id />} />
+            <Route path="/cd" element={<Cd />} />
           </Routes>
         </div>
       </Router>

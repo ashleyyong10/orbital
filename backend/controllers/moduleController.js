@@ -24,6 +24,7 @@ const setModule = asyncHandler(async (req, res) => {
   const module = await Module.create({
     text: req.body.text,
     user: req.user.id,
+    type: req.body.type,
     grade: req.body.grade
   });
 
