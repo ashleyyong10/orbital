@@ -35,10 +35,6 @@ function CoreMods() {
   }
   return (
     <>
-    <section className='heading'>
-        <p>You have completed: </p>
-    </section>
-
     
     <section className='content'>
         {(modules.filter((x) => x.type == "Core")).length > 0 ? (
