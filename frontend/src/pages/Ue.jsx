@@ -44,7 +44,7 @@ function Ue() {
           </section>
   
           <div className='modules'>
-            {modules.map((module) => (
+            {modules.filter((x) => x.type == "UE").map((module) => (
               <ModuleItem key={module._id} module={module} />
             ))}
           </div>

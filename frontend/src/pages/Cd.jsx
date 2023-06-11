@@ -44,7 +44,7 @@ function Cd() {
                 <p>You have completed: </p>
             </section>
             <div className='modules'>
-                {modules.map((module) => (
+                {modules.filter((x) => x.type == "CD").map((module) => (
                 <ModuleItem key={module._id} module={module} />
                 ))}
             </div>

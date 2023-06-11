@@ -42,7 +42,7 @@ function Id() {
             <p>You have completed: </p>
           </section>
           <div className='modules'>
-            {modules.map((module) => (
+            {modules.filter((x) => x.type == "ID").map((module) => (
               <ModuleItem key={module._id} module={module} />
             ))}
           </div>
