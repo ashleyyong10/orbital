@@ -9,7 +9,7 @@ import Update from "./pages/Update";
 import CoreMods from "./pages/CoreMods";
 import Id from "./pages/Id";
 import Cd from "./pages/Cd";
-import Ue from "./pages/Ue";
+import Ue from "./frontend/pages/Ue";
 
 function App() {
   return (

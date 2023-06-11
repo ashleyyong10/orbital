@@ -36,6 +36,9 @@ function Id() {
   return (
     <>
 
+    <section className='heading'>
+        <p>You have completed: </p>
+    </section>
     
     <section className='content'>
         {(modules.filter((x) => x.type == "ID")).length > 0 ? (

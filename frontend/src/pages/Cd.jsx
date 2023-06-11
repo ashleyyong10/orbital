@@ -35,6 +35,9 @@ function Cd() {
   }
   return (
     <>
+    <section className='heading'>
+        <p>You have completed: </p>
+    </section>
 
     
     <section className='content'>

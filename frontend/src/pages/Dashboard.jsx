@@ -2,10 +2,6 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {Link} from 'react-router-dom'
-import ModuleItem from '../components/ModuleItem'
-import CoreMods from './CoreMods'
-import Ue from './Ue'
-import Id from './Id'
 import Spinner from '../components/Spinner'
 import { getModules, reset } from '../features/modules/moduleSlice'
 
@@ -39,16 +35,16 @@ function Dashboard() {
     return <Spinner />
   }
 
-  const coreMods = (modules.filter((x) => x.type == "Core")).length
-  const ue = (modules.filter((x) => x.type == "UE")).length
-  const id = (modules.filter((x) => x.type == "ID")).length
-  const cd = (modules.filter((x) => x.type == "CD")).length
-  const gei = (modules.filter((x) => x.type == "GEI")).length
-  const gex = (modules.filter((x) => x.type == "GEX")).length
-  const gec = (modules.filter((x) => x.type == "GEC")).length
-  const gea = (modules.filter((x) => x.type == "GEA")).length
-  const ges = (modules.filter((x) => x.type == "GES")).length
-  const gen = (modules.filter((x) => x.type == "GEN")).length
+  const coreMods = (modules.filter((x) => x.type === "Core")).length
+  const ue = (modules.filter((x) => x.type === "UE")).length
+  const id = (modules.filter((x) => x.type === "ID")).length
+  const cd = (modules.filter((x) => x.type === "CD")).length
+  const gei = (modules.filter((x) => x.type === "GEI")).length
+  const gex = (modules.filter((x) => x.type === "GEX")).length
+  const gec = (modules.filter((x) => x.type === "GEC")).length
+  const gea = (modules.filter((x) => x.type === "GEA")).length
+  const ges = (modules.filter((x) => x.type === "GES")).length
+  const gen = (modules.filter((x) => x.type === "GEN")).length
 
 
 

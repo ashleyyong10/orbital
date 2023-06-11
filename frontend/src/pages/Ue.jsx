@@ -36,6 +36,10 @@ function Ue() {
   return (
     <>
 
+      <section className='heading'>
+        <p>You have completed: </p>
+      </section>
+
     
     <section className='content'>
         {(modules.filter((x) => x.type == "UE")).length > 0 ? (
