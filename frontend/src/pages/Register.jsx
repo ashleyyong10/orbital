@@ -55,7 +55,7 @@ function Register() {
         major,
         password,
       }
-
+      console.log(userData)
       dispatch(register(userData))
     }
   }
@@ -100,8 +100,8 @@ function Register() {
 
           <div className='form-group'>
 
-            <select name= "major" id="major">
-              <option value="" selected disabled hidden>Choose your major</option>
+            <select name= "major" id="major" value={major} onChange={onChange}>
+              <option value="" disabled hidden>Choose your major</option>
               <option value="BZA">BZA</option>
               <option value="CS">CS</option>
               <option value="IS">IS</option>
@@ -141,6 +141,7 @@ function Register() {
       </section>
 
     </>
+
   )
 }
 

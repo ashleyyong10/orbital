@@ -49,14 +49,17 @@ function AddModule() {
           />
         </div>
         <div className='form-group'>
-          <label htmlFor='grade'>Grade (Eg: A, B+)</label>
-          <input
-            type='grade'
-            name='grade'
-            id='grade'
-            value={grade}
-            onChange={onChange}
-          />
+
+          <select name= "grade" id="grade" value={grade} onChange={onChange}>
+            <option value="" disabled hidden>Select your grade</option>
+            <option value="A+">A+</option>
+            <option value="A">A</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B">B</option>
+            <option value="B-">B-</option>
+          </select>
+
         </div>
         <div className='form-group'>
           <button className='btn btn-block' type='submit'>

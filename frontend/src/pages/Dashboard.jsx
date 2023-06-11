@@ -38,7 +38,7 @@ function Dashboard() {
     <>
       <section className='heading'>
         <h1>Welcome {user && user.name}</h1>
-        <p>Your Modules</p>
+        <p>Progress Overview</p>
       </section>
 
       <section className='content'>

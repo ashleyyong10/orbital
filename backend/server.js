@@ -28,6 +28,7 @@ app.get("/", (req, res, _next) => {
 });
 app.use("/api/modules", require("./routes/moduleRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
+app.use("/api/requirements", require("./routes/requirementRoutes"));
 
 app.use(errorHandler);
 
