@@ -36,17 +36,17 @@ function Id() {
   return (
     <>
 
-    <section className='heading'>
-        <p>You have completed: </p>
-    </section>
-    
     <section className='content'>
         {(modules.filter((x) => x.type == "ID")).length > 0 ? (
+          <><section className='heading'>
+            <p>You have completed: </p>
+          </section>
           <div className='modules'>
             {modules.map((module) => (
               <ModuleItem key={module._id} module={module} />
             ))}
           </div>
+          </>
         ) : (
           <h3>You have not completed any ID modules</h3>
         )}

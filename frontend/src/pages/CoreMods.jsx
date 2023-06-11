@@ -37,16 +37,21 @@ function CoreMods() {
     <>
     <section className='heading'>
         <p>You have completed: </p>
-      </section>
+    </section>
 
     
     <section className='content'>
         {(modules.filter((x) => x.type == "Core")).length > 0 ? (
+          <>
+          <section className='heading'>
+              <p>You have completed: </p>
+          </section>
           <div className='modules'>
             {modules.map((module) => (
               <ModuleItem key={module._id} module={module} />
             ))}
           </div>
+          </>
         ) : (
           <h3>You have not completed any core modules</h3>
         )}

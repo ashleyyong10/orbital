@@ -35,18 +35,20 @@ function Cd() {
   }
   return (
     <>
-    <section className='heading'>
-        <p>You have completed: </p>
-    </section>
 
     
     <section className='content'>
         {(modules.filter((x) => x.type == "CD")).length > 0 ? (
-          <div className='modules'>
-            {modules.map((module) => (
-              <ModuleItem key={module._id} module={module} />
-            ))}
-          </div>
+            <>    
+            <section className='heading'>
+                <p>You have completed: </p>
+            </section>
+            <div className='modules'>
+                {modules.map((module) => (
+                <ModuleItem key={module._id} module={module} />
+                ))}
+            </div>
+            </>
         ) : (
           <h3>You have not completed any CD modules</h3>
         )}
