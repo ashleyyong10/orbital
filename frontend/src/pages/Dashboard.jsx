@@ -55,11 +55,61 @@ function Dashboard() {
       <section className="content">
         <Link to="/core">
           <b>
-            <u>GE Modules</u>
+            <u>GEA Module</u>
           </b>
         </Link>
 
-        <p> {coreMods}/16 completed </p>
+        <p> {gea}/1 completed </p>
+      </section>
+
+      <section className="content">
+        <Link to="/core">
+          <b>
+            <u>GEC Module</u>
+          </b>
+        </Link>
+
+        <p> {gec}/1 completed </p>
+      </section>
+
+      <section className="content">
+        <Link to="/core">
+          <b>
+            <u>GEI Module</u>
+          </b>
+        </Link>
+
+        <p> {gei}/1 completed </p>
+      </section>
+
+      <section className="content">
+        <Link to="/core">
+          <b>
+            <u>GEN Module</u>
+          </b>
+        </Link>
+
+        <p> {gen}/1 completed </p>
+      </section>
+
+      <section className="content">
+        <Link to="/core">
+          <b>
+            <u>GES Module</u>
+          </b>
+        </Link>
+
+        <p> {ges}/1 completed </p>
+      </section>
+
+      <section className="content">
+        <Link to="/core">
+          <b>
+            <u>GEX Module</u>
+          </b>
+        </Link>
+
+        <p> {gex}/1 completed </p>
       </section>
 
       <section className="content">
