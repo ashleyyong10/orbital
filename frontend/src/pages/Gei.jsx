@@ -36,14 +36,14 @@ function Gei() {
   return (
     <>
       <section className="content">
-        {modules.filter((x) => x.type == "gei").length > 0 ? (
+        {modules.filter((x) => x.type == "GEI").length > 0 ? (
           <>
             <section className="heading">
               <p>You have completed: </p>
             </section>
             <div className="modules">
               {modules
-                .filter((x) => x.type == "gei")
+                .filter((x) => x.type == "GEI")
                 .map((module) => (
                   <ModuleItem key={module._id} module={module} />
                 ))}

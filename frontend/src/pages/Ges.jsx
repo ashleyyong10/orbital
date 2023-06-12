@@ -36,14 +36,14 @@ function Ges() {
   return (
     <>
       <section className="content">
-        {modules.filter((x) => x.type == "ges").length > 0 ? (
+        {modules.filter((x) => x.type == "GES").length > 0 ? (
           <>
             <section className="heading">
               <p>You have completed: </p>
             </section>
             <div className="modules">
               {modules
-                .filter((x) => x.type == "ges")
+                .filter((x) => x.type == "GES")
                 .map((module) => (
                   <ModuleItem key={module._id} module={module} />
                 ))}

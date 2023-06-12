@@ -53,7 +53,7 @@ function Dashboard() {
       </section>
 
       <section className="content">
-        <Link to="/core">
+        <Link to="/gea">
           <b>
             <u>GEA Module</u>
           </b>
@@ -63,7 +63,7 @@ function Dashboard() {
       </section>
 
       <section className="content">
-        <Link to="/core">
+        <Link to="/gec">
           <b>
             <u>GEC Module</u>
           </b>
@@ -73,7 +73,7 @@ function Dashboard() {
       </section>
 
       <section className="content">
-        <Link to="/core">
+        <Link to="/gei">
           <b>
             <u>GEI Module</u>
           </b>
@@ -83,7 +83,7 @@ function Dashboard() {
       </section>
 
       <section className="content">
-        <Link to="/core">
+        <Link to="/gen">
           <b>
             <u>GEN Module</u>
           </b>
@@ -93,7 +93,7 @@ function Dashboard() {
       </section>
 
       <section className="content">
-        <Link to="/core">
+        <Link to="/ges">
           <b>
             <u>GES Module</u>
           </b>
@@ -103,7 +103,7 @@ function Dashboard() {
       </section>
 
       <section className="content">
-        <Link to="/core">
+        <Link to="/gex">
           <b>
             <u>GEX Module</u>
           </b>
