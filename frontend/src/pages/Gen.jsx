@@ -36,21 +36,21 @@ function Gen() {
   return (
     <>
       <section className="content">
-        {modules.filter((x) => x.type == "GEN").length > 0 ? (
+        {modules.filter((x) => x.type == "gen").length > 0 ? (
           <>
             <section className="heading">
               <p>You have completed: </p>
             </section>
             <div className="modules">
               {modules
-                .filter((x) => x.type == "GEN")
+                .filter((x) => x.type == "gen")
                 .map((module) => (
                   <ModuleItem key={module._id} module={module} />
                 ))}
             </div>
           </>
         ) : (
-          <h3>You have not completed any Gen module</h3>
+          <h3>You have not completed any GEN module</h3>
         )}
       </section>
     </>

@@ -36,21 +36,21 @@ function Gec() {
   return (
     <>
       <section className="content">
-        {modules.filter((x) => x.type == "GEC").length > 0 ? (
+        {modules.filter((x) => x.type == "gec").length > 0 ? (
           <>
             <section className="heading">
               <p>You have completed: </p>
             </section>
             <div className="modules">
               {modules
-                .filter((x) => x.type == "GEC")
+                .filter((x) => x.type == "gec")
                 .map((module) => (
                   <ModuleItem key={module._id} module={module} />
                 ))}
             </div>
           </>
         ) : (
-          <h3>You have not completed any Gec module</h3>
+          <h3>You have not completed any GEC module</h3>
         )}
       </section>
     </>
