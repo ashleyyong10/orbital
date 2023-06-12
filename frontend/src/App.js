@@ -6,6 +6,12 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Update from "./pages/Update";
+import Gea from "./pages/Gea";
+import Gec from "./pages/Gec";
+import Gei from "./pages/Gei";
+import Gen from "./pages/Gen";
+import Ges from "./pages/Ges";
+import Gex from "./pages/Gea";
 import CoreMods from "./pages/CoreMods";
 import Id from "./pages/Id";
 import Cd from "./pages/Cd";
@@ -22,6 +28,12 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/update" element={<Update />} />
+            <Route path="/gea" element={<Gea />} />
+            <Route path="/gec" element={<Gec />} />
+            <Route path="/gei" element={<Gei />} />
+            <Route path="/gen" element={<Gen />} />
+            <Route path="/ges" element={<Ges />} />
+            <Route path="/gex" element={<Gex />} />
             <Route path="/core" element={<CoreMods />} />
             <Route path="/ue" element={<Ue />} />
             <Route path="/id" element={<Id />} />
