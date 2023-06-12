@@ -14,8 +14,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const DEV_API = "http://localhost:3000"
-const PROD_API = "https://orbital-frontend-axsauce.vercel.app"
+const DEV_API = "http://localhost:3000";
+const PROD_API = "https://orbital-frontend-axsauce.vercel.app";
 
 app.use(
   cors({
@@ -34,4 +34,4 @@ app.use(errorHandler);
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
 
-module.exports = app
+module.exports = app;
