@@ -66,11 +66,11 @@ function Update() {
               <option value="CD">CD</option>
               <option value="UE">UE</option>
               <option value="GEA">GEA</option>
-              <option value="GEI">GEC</option>
+              <option value="GEC">GEC</option>
               <option value="GEI">GEI</option>
-              <option value="GEI">GEN</option>
-              <option value="GEI">GES</option>
-              <option value="GEI">GEX</option>
+              <option value="GEN">GEN</option>
+              <option value="GES">GES</option>
+              <option value="GEX">GEX</option>
             </select>
           </div>
 
