@@ -16,9 +16,10 @@ const getModules = asyncHandler(async (req, res) => {
 // @route   POST /api/modules
 // @access  Private
 const setModule = asyncHandler(async (req, res) => {
-  if (!req.body.text) {
+  const { text, type, grade } = req.body;
+  if (!text || !type || !grade) {
     res.status(400);
-    throw new Error("Please add a text field");
+    throw new Error("Please add all fields");
   }
 
   const module = await Module.create({

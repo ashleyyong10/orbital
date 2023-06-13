@@ -2,20 +2,30 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { FaUser } from "react-icons/fa";
-import { register, reset } from "../features/auth/authSlice";
-import { createModule } from "../features/modules/moduleSlice";
+import { createModule, reset } from "../features/modules/moduleSlice";
 
 function Update() {
   const [formData, setFormData] = useState({
-    text: "",
-    type: "",
-    grade: "",
+    text: '',
+    type: '',
+    grade: '',
   });
-
   const { text, type, grade } = formData;
 
   const dispatch = useDispatch();
+
+  const { modules, isError, message } = useSelector(
+    (state) => state.modules
+  )
+
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
+    }
+
+    dispatch(reset())
+    },  [modules, isError, message, dispatch])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -28,14 +38,17 @@ function Update() {
     e.preventDefault();
 
     dispatch(createModule({ text, type, grade }));
-    console.log({ text, type, grade });
+
+    if (text && type && grade) {
+      toast("Module Added")
+    }
+    
     setFormData({
       text: "",
       type: "",
       grade: "",
     });
 
-    alert("Module added");
   };
 
   return (
@@ -61,6 +74,7 @@ function Update() {
               <option value="" disabled hidden>
                 Select module type
               </option>
+              <option value=""> </option>
               <option value="Core">Core</option>
               <option value="ID">ID</option>
               <option value="CD">CD</option>
@@ -79,6 +93,7 @@ function Update() {
               <option value="" disabled hidden>
                 Select your grade
               </option>
+              <option value=""> </option>
               <option value="A+">A+</option>
               <option value="A">A</option>
               <option value="A-">A-</option>
