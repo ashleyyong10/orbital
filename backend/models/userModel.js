@@ -14,7 +14,6 @@ const userSchema = mongoose.Schema(
     major: {
       type: String,
       required: [true, 'Please add your major'],
-      unique: true,
     },
     password: {
       type: String,
