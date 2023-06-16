@@ -54,14 +54,6 @@ function Update() {
     }));
   };
 
-  // const handleChange = (e) => {
-  //   setModCode(e.target.value);
-  //   setFormData((prevState) => ({
-  //     ...prevState,
-  //     [e.target.name]: e.target.value,
-  //   }));
-  // };
-
   const onSubmit = (e) => {
     e.preventDefault();
 
