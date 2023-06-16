@@ -16,17 +16,17 @@ const getModules = asyncHandler(async (req, res) => {
 // @route   POST /api/modules
 // @access  Private
 const setModule = asyncHandler(async (req, res) => {
-  const { text, type, grade } = req.body;
-  if (!text || !type || !grade) {
+  const { moduleCode, type, grade } = req.body;
+  if (!moduleCode || !type || !grade) {
     res.status(400);
     throw new Error("Please add all fields");
   }
 
   const module = await Module.create({
-    text: req.body.text,
+    moduleCode: req.body.moduleCode,
     user: req.user.id,
     type: req.body.type,
-    grade: req.body.grade
+    grade: req.body.grade,
   });
 
   res.status(200).json(module);

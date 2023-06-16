@@ -5,50 +5,77 @@ import { toast } from "react-toastify";
 import { createModule, reset } from "../features/modules/moduleSlice";
 
 function Update() {
+  const [modCode, setModCode] = useState("");
+  const [moduleList, setModuleList] = useState([
+    { moduleCode: "", title: "", semesters: "" },
+  ]);
   const [formData, setFormData] = useState({
-    text: '',
-    type: '',
-    grade: '',
+    moduleCode: "",
+    type: "",
+    grade: "",
   });
-  const { text, type, grade } = formData;
+
+  const { moduleCode, type, grade } = formData;
 
   const dispatch = useDispatch();
 
-  const { modules, isError, message } = useSelector(
-    (state) => state.modules
-  )
+  const { modules, isError, message } = useSelector((state) => state.modules);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(
+        `https://api.nusmods.com/v2/2022-2023/moduleList.json`
+      );
+      const newData = await response.json();
+      setModuleList(newData);
+    };
+    fetchData();
+  });
 
   useEffect(() => {
     if (isError) {
-      toast.error(message)
+      toast.error(message);
     }
 
-    dispatch(reset())
-    },  [modules, isError, message, dispatch])
+    dispatch(reset());
+  }, [modules, isError, message, dispatch]);
 
   const onChange = (e) => {
+    if (e.target.name === "moduleCode") {
+      setModCode(e.target.value);
+      setFormData((prevState) => ({
+        ...prevState,
+        [e.target.name]: { modCode },
+      }));
+    }
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
     }));
   };
 
+  // const handleChange = (e) => {
+  //   setModCode(e.target.value);
+  //   setFormData((prevState) => ({
+  //     ...prevState,
+  //     [e.target.name]: e.target.value,
+  //   }));
+  // };
+
   const onSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(createModule({ text, type, grade }));
+    dispatch(createModule({ moduleCode, type, grade }));
 
-    if (text && type && grade) {
-      toast("Module Added")
+    if (moduleCode && type && grade) {
+      toast("Module Added");
     }
-    
+
     setFormData({
-      text: "",
+      moduleCode: setModCode(""),
       type: "",
       grade: "",
     });
-
   };
 
   return (
@@ -60,15 +87,21 @@ function Update() {
       <section className="form">
         <form onSubmit={onSubmit}>
           <div className="form-group">
-            <label htmlFor="text">Module</label>
-            <input
-              type="text"
-              name="text"
-              id="text"
-              value={text}
+            <select
+              name="moduleCode"
+              id="moduleCode"
+              value={modCode}
               onChange={onChange}
-            />
+            >
+              <option value="">Choose module</option>
+              {moduleList.map((module) => (
+                <option value={module.moduleCode} key={module.moduleCode}>
+                  {module.moduleCode}
+                </option>
+              ))}
+            </select>
           </div>
+
           <div className="form-group">
             <select name="type" id="type" value={type} onChange={onChange}>
               <option value="" disabled hidden>
@@ -100,6 +133,10 @@ function Update() {
               <option value="B+">B+</option>
               <option value="B">B</option>
               <option value="B-">B-</option>
+              <option value="C+">C+</option>
+              <option value="C">C</option>
+              <option value="C-">C-</option>
+              <option value="D">D</option>
             </select>
           </div>
           <div className="form-group">
