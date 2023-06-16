@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import ModuleItem from "../components/ModuleItem";
 import Spinner from "../components/Spinner";
 import { getModules, reset } from "../features/modules/moduleSlice";
+import { Link } from "react-router-dom";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 function Gei() {
   const navigate = useNavigate();
@@ -35,6 +37,12 @@ function Gei() {
   }
   return (
     <>
+      <section className="btn-block-left">
+        <Link to="/Ge">
+          <IoMdArrowRoundBack />
+          Back
+        </Link>
+      </section>
       <section className="content">
         {modules.filter((x) => x.type == "GEI").length > 0 ? (
           <>

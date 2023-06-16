@@ -11,11 +11,12 @@ import Gec from "./pages/Gec";
 import Gei from "./pages/Gei";
 import Gen from "./pages/Gen";
 import Ges from "./pages/Ges";
-import Gex from "./pages/Gea";
+import Gex from "./pages/Gex";
 import CoreMods from "./pages/CoreMods";
 import Id from "./pages/Id";
 import Cd from "./pages/Cd";
 import Ue from "./pages/Ue";
+import Ge from "./pages/Ge";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/update" element={<Update />} />
+            <Route path="/ge" element={<Ge />} />
             <Route path="/gea" element={<Gea />} />
             <Route path="/gec" element={<Gec />} />
             <Route path="/gei" element={<Gei />} />

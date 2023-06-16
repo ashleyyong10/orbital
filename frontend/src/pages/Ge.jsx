@@ -4,8 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { getModules, reset } from "../features/modules/moduleSlice";
+import { IoMdArrowRoundBack } from "react-icons/io";
 
-function Dashboard() {
+function Ge() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -34,68 +35,93 @@ function Dashboard() {
     return <Spinner />;
   }
 
-  const coreMods = modules.filter((x) => x.type === "Core").length;
-  const ue = modules.filter((x) => x.type === "UE").length;
-  const id = modules.filter((x) => x.type === "ID").length;
-  const cd = modules.filter((x) => x.type === "CD").length;
-  const validTypes = ["GEI", "GEX", "GEC", "GEA", "GES", "GEN"];
-  const allGe = modules.filter((x) => validTypes.includes(x.type)).length;
+  const gei = modules.filter((x) => x.type === "GEI").length;
+  const gex = modules.filter((x) => x.type === "GEX").length;
+  const gec = modules.filter((x) => x.type === "GEC").length;
+  const gea = modules.filter((x) => x.type === "GEA").length;
+  const ges = modules.filter((x) => x.type === "GES").length;
+  const gen = modules.filter((x) => x.type === "GEN").length;
+
+  function isCompleted(ge) {
+    if (ge === 1) {
+      return "Completed";
+    } else {
+      return "Uncompleted";
+    }
+  }
 
   return (
     <>
+      <section className="btn-block-left">
+        <Link to="/">
+          <IoMdArrowRoundBack />
+          Back
+        </Link>
+      </section>
       <section className="heading">
-        <h1>Welcome {user && user.name}</h1>
-        <p>Overview</p>
+        <h1>GE Modules</h1>
       </section>
 
       <section className="content">
-        <Link to="/ge">
+        <Link to="/gea">
           <b>
-            <u>GE Modules</u>
+            <u>GEA</u>
           </b>
         </Link>
-
-        <p> {allGe}/6 pillars completed </p>
+        <p> {isCompleted(gea)} </p>
       </section>
 
       <section className="content">
-        <Link to="/core">
+        <Link to="/gec">
           <b>
-            <u>Core Modules</u>
+            <u>GEC</u>
           </b>
         </Link>
 
-        <p> {coreMods}/16 completed </p>
+        <p> {isCompleted(gec)} </p>
       </section>
 
       <section className="content">
-        <Link to="/id">
+        <Link to="/gei">
           <b>
-            <u>ID Modules</u>
+            <u>GEI</u>
           </b>
         </Link>
-        <p> {id}/2 completed </p>
+
+        <p> {isCompleted(gei)} </p>
       </section>
 
       <section className="content">
-        <Link to="/cd">
+        <Link to="/gen">
           <b>
-            <u>CD Modules</u>
+            <u>GEN</u>
           </b>
         </Link>
-        <p> {cd}/1 completed </p>
+
+        <p> {isCompleted(gen)} </p>
       </section>
 
       <section className="content">
-        <Link to="/ue">
+        <Link to="/ges">
           <b>
-            <u>Unrestricted Electives</u>
+            <u>GES</u>
           </b>
         </Link>
-        <p>{ue}/20 completed</p>
+
+        <p> {isCompleted(ges)} </p>
+      </section>
+
+      <section className="content">
+        <Link to="/gex">
+          <b>
+            <u>GEX</u>
+          </b>
+        </Link>
+
+        <p> {isCompleted(gex)} </p>
       </section>
     </>
   );
 }
 
-export default Dashboard;
+export default Ge;
