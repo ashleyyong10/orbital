@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const {
-  getCore,
+  getRequirement,
 } = require("../controllers/requirementController");
 
-router.route("/core").get(getCore)
+router.route("/").get(getRequirement)
 
 module.exports = router;

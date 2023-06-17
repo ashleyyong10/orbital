@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { createModule, reset } from "../features/modules/moduleSlice";
+import { getRequirements } from "../features/requirements/requirementService";
 
 function Update() {
   const [modCode, setModCode] = useState("");
@@ -16,6 +17,7 @@ function Update() {
   });
 
   const { moduleCode, type, grade } = formData;
+  const { user } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
 
@@ -56,6 +58,8 @@ function Update() {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    getRequirements({ params: { major: user.major} }).then(x => console.log(x))
 
     dispatch(createModule({ moduleCode, type, grade }));
 
