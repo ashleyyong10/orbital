@@ -8,8 +8,6 @@ const Requirement = require("../models/requirementModel");
 const getRequirement = asyncHandler(async (req, res) => {
     const {major} = req.query
     const requirements = await Requirement.find({major: major });
-    console.log(major)
-    console.log(requirements)
     res.status(200).json(requirements);
   });
 

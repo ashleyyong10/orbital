@@ -56,10 +56,29 @@ function Update() {
     }));
   };
 
+  const checker = (major, code, modType, mods) => {
+    //checking if module has been entered before
+    //enter some code
+
+    if (modType === "Core") {}
+
+    if (modType === "ID") {}
+
+    if (modType === "CD") {}
+
+    //random code below
+    // const result = modules.map(mods => mods.type)
+    // console.log(result)
+    // console.log(code)
+    // getRequirements(major).then(x => console.log(x[0].core))
+    // getRequirements(major).then(x => console.log(x[0].id))
+
+  }
+
   const onSubmit = (e) => {
     e.preventDefault();
 
-    getRequirements({ params: { major: user.major} }).then(x => console.log(x))
+    checker({ params: { major: user.major} }, moduleCode, type, modules)
 
     dispatch(createModule({ moduleCode, type, grade }));
 
