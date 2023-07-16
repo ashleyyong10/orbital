@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { createModule, reset } from "../features/modules/moduleSlice";
+import { getModules, createModule, reset } from "../features/modules/moduleSlice";
 import { getRequirements } from "../features/requirements/requirementService";
+
 
 function Update() {
   const [modCode, setModCode] = useState("");
@@ -40,7 +41,8 @@ function Update() {
     }
 
     dispatch(reset());
-  }, [modules, isError, message, dispatch]);
+    dispatch(getModules())
+  }, [isError, message, dispatch]);
 
   const onChange = (e) => {
     if (e.target.name === "moduleCode") {
@@ -56,15 +58,36 @@ function Update() {
     }));
   };
 
-  const checker = (major, code, modType, mods) => {
-    //checking if module has been entered before
-    //enter some code
+  const checker = (user, code, modType, mods) => {
+    //step 1
+    //making a array of modules that have been completed before
+    const userMods = mods.filter((x) => x.user === user._id);
 
-    if (modType === "Core") {}
+    //step 2
+    //checking if module has been done before
 
-    if (modType === "ID") {}
+    for (const mod of userMods) {
+      if (mod.moduleCode === modCode) {
+        throw new Error("Module already added");
+      }
+    }
 
-    if (modType === "CD") {}
+    //step 3 
+    // if (user.pillars[modType] === "completed") {
+    //   throw new Error("This pillar has already been completed");
+    //   }
+
+    
+
+    
+
+    //step 4
+    //checking if module matches with type
+    // if (modType === "Core") {}
+
+    // if (modType === "ID") {}
+
+    // if (modType === "CD") {}
 
     //random code below
     // const result = modules.map(mods => mods.type)
@@ -78,19 +101,30 @@ function Update() {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    checker({ params: { major: user.major} }, moduleCode, type, modules)
+    try {
+      checker(user, moduleCode, type, modules)
+      dispatch(createModule({ moduleCode, type, grade }));
 
-    dispatch(createModule({ moduleCode, type, grade }));
-
-    if (moduleCode && type && grade) {
+      if (moduleCode && type && grade) {
       toast("Module Added");
-    }
+      }
 
-    setFormData({
+      setFormData({
       moduleCode: setModCode(""),
       type: "",
       grade: "",
-    });
+      });
+  
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+        toast(message)
+    }
+
   };
 
   return (
