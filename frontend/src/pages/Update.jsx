@@ -100,7 +100,6 @@ function Update() {
     };
 
     const modTemp = jsonData[modTypes[modType]];
-    console.log(modTemp);
 
     if (!modTemp.includes(code)) {
       throw new Error(`This module is not a ${modType} module`);
@@ -121,10 +120,6 @@ function Update() {
     //     throw new Error("This module is not a core module");
     //   }
     // }
-
-    // if (modType === "ID") {}
-
-    // if (modType === "CD") {}
 
     //random code below
     // const result = modules.map(mods => mods.type)
