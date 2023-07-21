@@ -17,6 +17,7 @@ import Id from "./pages/Id";
 import Cd from "./pages/Cd";
 import Ue from "./pages/Ue";
 import Ge from "./pages/Ge";
+import Pe from "./pages/Pe";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
             <Route path="/ue" element={<Ue />} />
             <Route path="/id" element={<Id />} />
             <Route path="/cd" element={<Cd />} />
+            <Route path="/pe" element={<Pe />} />
           </Routes>
         </div>
       </Router>

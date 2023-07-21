@@ -2,9 +2,12 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { getModules, createModule, reset } from "../features/modules/moduleSlice";
-import { getRequirements } from "../features/requirements/requirementService";
-
+import {
+  getModules,
+  createModule,
+  reset,
+} from "../features/modules/moduleSlice";
+import data from "../BZA.json";
 
 function Update() {
   const [modCode, setModCode] = useState("");
@@ -16,6 +19,8 @@ function Update() {
     type: "",
     grade: "",
   });
+
+  const [jsonData, setJsonData] = useState(data);
 
   const { moduleCode, type, grade } = formData;
   const { user } = useSelector((state) => state.auth);
@@ -41,7 +46,7 @@ function Update() {
     }
 
     dispatch(reset());
-    dispatch(getModules())
+    dispatch(getModules());
   }, [isError, message, dispatch]);
 
   const onChange = (e) => {
@@ -72,18 +77,50 @@ function Update() {
       }
     }
 
-    //step 3 
+    //step 3
     // if (user.pillars[modType] === "completed") {
     //   throw new Error("This pillar has already been completed");
     //   }
 
-    
-
-    
-
     //step 4
     //checking if module matches with type
-    // if (modType === "Core") {}
+
+    const modTypes = {
+      CD: "cd",
+      Core: "core",
+      Ethics: "ethics",
+      GEA: "gea",
+      GEC: "gec",
+      GEI: "gei",
+      GEN: "gen",
+      GES: "ges",
+      GEX: "gex",
+      ID: "id",
+      PE: "pe",
+    };
+
+    const modTemp = jsonData[modTypes[modType]];
+    console.log(modTemp);
+
+    if (!modTemp.includes(code)) {
+      throw new Error(`This module is not a ${modType} module`);
+    }
+
+    // if (modType === "CD") {
+    //   const cdMods = jsonData.cd;
+    //   console.log(cdMods);
+    //   if (!cdMods.includes(code)) {
+    //     throw new Error("This module is not a CD module");
+    //   }
+    // }
+
+    // if (modType === "Core") {
+    //   const coreMods = jsonData.core;
+    //   console.log(coreMods);
+    //   if (!coreMods.includes(code)) {
+    //     throw new Error("This module is not a core module");
+    //   }
+    // }
 
     // if (modType === "ID") {}
 
@@ -95,26 +132,24 @@ function Update() {
     // console.log(code)
     // getRequirements(major).then(x => console.log(x[0].core))
     // getRequirements(major).then(x => console.log(x[0].id))
-
-  }
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     try {
-      checker(user, moduleCode, type, modules)
+      checker(user, moduleCode, type, modules);
       dispatch(createModule({ moduleCode, type, grade }));
 
       if (moduleCode && type && grade) {
-      toast("Module Added");
+        toast("Module Added");
       }
 
       setFormData({
-      moduleCode: setModCode(""),
-      type: "",
-      grade: "",
+        moduleCode: setModCode(""),
+        type: "",
+        grade: "",
       });
-  
     } catch (error) {
       const message =
         (error.response &&
@@ -122,9 +157,8 @@ function Update() {
           error.response.data.message) ||
         error.message ||
         error.toString();
-        toast(message)
+      toast(message);
     }
-
   };
 
   return (
@@ -160,6 +194,7 @@ function Update() {
               <option value="Core">Core</option>
               <option value="ID">ID</option>
               <option value="CD">CD</option>
+              <option value="PE">PE</option>
               <option value="UE">UE</option>
               <option value="GEA">GEA</option>
               <option value="GEC">GEC</option>
@@ -186,6 +221,7 @@ function Update() {
               <option value="C">C</option>
               <option value="C-">C-</option>
               <option value="D">D</option>
+              <option value="S/U">S/U</option>
             </select>
           </div>
           <div className="form-group">

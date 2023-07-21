@@ -38,6 +38,7 @@ function Dashboard() {
   const ue = modules.filter((x) => x.type === "UE").length;
   const id = modules.filter((x) => x.type === "ID").length;
   const cd = modules.filter((x) => x.type === "CD").length;
+  const pe = modules.filter((x) => x.type === "PE").length;
   const validTypes = ["GEI", "GEX", "GEC", "GEA", "GES", "GEN"];
   const allGe = modules.filter((x) => validTypes.includes(x.type)).length;
 
@@ -84,6 +85,15 @@ function Dashboard() {
           </b>
         </Link>
         <p> {cd}/1 completed </p>
+      </section>
+
+      <section className="content">
+        <Link to="/pe">
+          <b>
+            <u>Programme Electives</u>
+          </b>
+        </Link>
+        <p> {pe}/5 completed </p>
       </section>
 
       <section className="content">
