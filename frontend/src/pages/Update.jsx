@@ -24,7 +24,7 @@ function Update() {
 
   const { modules, isError, message } = useSelector((state) => state.modules);
 
-  const modQuota = {Core: 16, ID:2, CD:1, GEA:1, GEC:1, GEI:1, GEN:1, GES:1, GEX:1, PE:5 }
+  const modQuota = {Core: 16, ID:2, CD:1, GEA:1, GEC:1, GEI:1, GEN:1, GES:1, GEX:1, PE:5, Ethics:1 }
 
   useEffect(() => {
     const fetchData = async () => {
