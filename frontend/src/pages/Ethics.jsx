@@ -7,7 +7,7 @@ import { getModules, reset } from "../features/modules/moduleSlice";
 import { Link } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-function Pe() {
+function Ethics() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -44,26 +44,25 @@ function Pe() {
         </Link>
       </section>
       <section className="content">
-        {modules.filter((x) => x.type == "PE").length > 0 ? (
+        {modules.filter((x) => x.type == "Ethics").length > 0 ? (
           <>
             <section className="heading">
               <p>You have completed: </p>
             </section>
-
             <div className="modules">
               {modules
-                .filter((x) => x.type == "PE")
+                .filter((x) => x.type == "Ethics")
                 .map((module) => (
                   <ModuleItem key={module._id} module={module} />
                 ))}
             </div>
           </>
         ) : (
-          <h3>You have not completed any Programme Electives</h3>
+          <h3>You have not completed your Ethics module</h3>
         )}
       </section>
     </>
   );
 }
 
-export default Pe;
+export default Ethics;

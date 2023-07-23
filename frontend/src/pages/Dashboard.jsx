@@ -36,9 +36,10 @@ function Dashboard() {
 
   const coreMods = modules.filter((x) => x.type === "Core").length;
   const ue = modules.filter((x) => x.type === "UE").length;
+  const pe = modules.filter((x) => x.type === "PE").length;
   const id = modules.filter((x) => x.type === "ID").length;
   const cd = modules.filter((x) => x.type === "CD").length;
-  const pe = modules.filter((x) => x.type === "PE").length;
+  const ethics = modules.filter((x) => x.type === "Ethics").length;
   const validTypes = ["GEI", "GEX", "GEC", "GEA", "GES", "GEN"];
   const allGe = modules.filter((x) => validTypes.includes(x.type)).length;
 
@@ -47,16 +48,6 @@ function Dashboard() {
       <section className="heading">
         <h1>Welcome {user && user.name}</h1>
         <p>Overview</p>
-      </section>
-
-      <section className="content">
-        <Link to="/ge">
-          <b>
-            <u>GE Modules</u>
-          </b>
-        </Link>
-
-        <p> {allGe}/6 pillars completed </p>
       </section>
 
       <section className="content">
@@ -103,6 +94,25 @@ function Dashboard() {
           </b>
         </Link>
         <p>{ue}/20 completed</p>
+      </section>
+
+      <section className="content">
+        <Link to="/ge">
+          <b>
+            <u>GE Modules</u>
+          </b>
+        </Link>
+
+        <p> {allGe}/6 pillars completed </p>
+      </section>
+
+      <section className="content">
+        <Link to="/ethics">
+          <b>
+            <u>Ethics Module</u>
+          </b>
+        </Link>
+        <p> {ethics}/1 completed </p>
       </section>
     </>
   );
