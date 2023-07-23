@@ -6,24 +6,28 @@ const requirementSchema = mongoose.Schema(
       type: String,
       required: [true, 'Please add a major'],
     },
-    core: {
+    Core: {
       type: Array,
       required: [true, 'Please add a core module'],
     },
-    ue: {
+    CoreNo: {
+      type: Number,
+      required: [true, 'Please add a CoreNo'],
+    },
+    UE: {
         type: Array,
         required: [true, 'Please add a ue module'],
       },
-    id: {
+    ID: {
         type: Array,
         required: [true, 'Please add a id module'],
     },
-    cd: {
+    CD: {
         type: Array,
         required: [true, 'Please add a cd module'],
     },
 
-    ethics: {
+    Ethics: {
         type: Array,
         required: [true, 'Please add a ethics module'],
     },

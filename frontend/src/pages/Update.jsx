@@ -24,6 +24,8 @@ function Update() {
 
   const { modules, isError, message } = useSelector((state) => state.modules);
 
+  const modQuota = {Core: 16, ID:2, CD:1 }
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(
@@ -72,14 +74,15 @@ function Update() {
       }
     }
 
-    //step 3 
-    // if (user.pillars[modType] === "completed") {
-    //   throw new Error("This pillar has already been completed");
-    //   }
+    //step 3: checking if pillar has alrdy been completed
 
+    const userModsByType = mods.filter((x) => x.type === modType);
+    const limit = modQuota[modType]
     
+    if (userModsByType.length === limit) {
+      throw new Error("This pillar has already been completed");
+      }
 
-    
 
     //step 4
     //checking if module matches with type
@@ -122,7 +125,7 @@ function Update() {
           error.response.data.message) ||
         error.message ||
         error.toString();
-        toast(message)
+        toast.error(message)
     }
 
   };

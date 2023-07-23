@@ -15,9 +15,6 @@ const userSchema = mongoose.Schema(
       type: String,
       required: [true, 'Please add your major'],
     },
-    pillars: {
-      type: Object
-    },
     password: {
       type: String,
       required: [true, 'Please add a password'],

@@ -26,15 +26,11 @@ const registerUser = asyncHandler(async (req, res) => {
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
 
-  //create completion object
-  const pillars = {Core: "completed", ID: "completed", CD: "completed" }
-
   // Create user
   const user = await User.create({
     name,
     email,
     major,
-    pillars,
     password: hashedPassword,
   });
 
@@ -44,7 +40,6 @@ const registerUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       major: user.major,
-      pillars: user.pillars,
       token: generateToken(user._id),
     });
   } else {
@@ -71,7 +66,6 @@ const loginUser = asyncHandler(async (req, res) => {
       name: user.name,
       email: user.email,
       major: user.major,
-      pillars: user.pillars,
       token: generateToken(user._id),
     });
   } else {
