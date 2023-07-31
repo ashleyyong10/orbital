@@ -108,25 +108,25 @@ function Update() {
     //step 4
     //checking if module matches with type
 
-    const modTypes = {
-      CD: "cd",
-      Core: "core",
-      Ethics: "ethics",
-      GEA: "gea",
-      GEC: "gec",
-      GEI: "gei",
-      GEN: "gen",
-      GES: "ges",
-      GEX: "gex",
-      ID: "id",
-      PE: "pe",
-    };
+    // const modTypes = {
+    //   CD: "cd",
+    //   Core: "core",
+    //   Ethics: "ethics",
+    //   GEA: "gea",
+    //   GEC: "gec",
+    //   GEI: "gei",
+    //   GEN: "gen",
+    //   GES: "ges",
+    //   GEX: "gex",
+    //   ID: "id",
+    //   PE: "pe",
+    // };
 
-    const modTemp = jsonData[modTypes[modType]];
+    // const modTemp = jsonData[modTypes[modType]];
 
-    if (!modTemp.includes(code)) {
-      throw new Error(`This module is not a ${modType} module`);
-    }
+    // if (!modTemp.includes(code)) {
+    //   throw new Error(`This module is not a ${modType} module`);
+    // }
 
     // if (modType === "CD") {
     //   const cdMods = jsonData.cd;
@@ -239,8 +239,9 @@ function Update() {
               <option value="B-">B-</option>
               <option value="C+">C+</option>
               <option value="C">C</option>
-              <option value="C-">C-</option>
+              <option value="D+">D+</option>
               <option value="D">D</option>
+              <option value="F">F</option>
               <option value="S/U">S/U</option>
             </select>
           </div>

@@ -34,6 +34,62 @@ function Dashboard() {
     return <Spinner />;
   }
 
+  function GPAcalculator(user, mods) {
+    const userMods = mods.filter((x) => x.user === user._id);
+    let totalGradePoints = 0;
+    let validModulesCount = 0;
+  
+    for (const module of userMods) {
+      const { grade } = module;
+  
+      if (grade !== 'S/U') {
+        switch (grade) {
+          case 'A+':
+          case 'A':
+            totalGradePoints += 5.0;
+            break;
+          case 'A-':
+            totalGradePoints += 4.5;
+            break;
+          case 'B+':
+            totalGradePoints += 4.0;
+            break;
+          case 'B':
+            totalGradePoints += 3.5;
+            break;
+          case 'B-':
+            totalGradePoints += 3.0;
+            break;
+          case 'C+':
+            totalGradePoints += 2.5;
+            break;
+          case 'C':
+            totalGradePoints += 2.0;
+            break;
+          case 'D+':
+            totalGradePoints += 1.5;
+            break;
+          case 'D':
+            totalGradePoints += 1.0;
+            break;
+          case 'F':
+            totalGradePoints += 0.0;
+            break;
+        }
+  
+        validModulesCount++;
+      }
+    }
+  
+    if (validModulesCount === 0) {
+      return 0; // No valid modules, so the final grade is 0
+    }
+  
+    const finalGrade = totalGradePoints / validModulesCount;
+    return finalGrade;
+  }
+  
+  const GPA = GPAcalculator(user, modules)
   const coreMods = modules.filter((x) => x.type === "Core").length;
   const ue = modules.filter((x) => x.type === "UE").length;
   const pe = modules.filter((x) => x.type === "PE").length;
@@ -113,6 +169,14 @@ function Dashboard() {
           </b>
         </Link>
         <p> {ethics}/1 completed </p>
+      </section>
+
+      <section className="content"> 
+        <b>
+          <u>Your GPA</u>
+        </b>
+
+        <p> {GPA.toFixed(2)}/5.0 </p>
       </section>
     </>
   );
