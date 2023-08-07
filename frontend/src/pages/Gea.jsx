@@ -47,7 +47,7 @@ function Gea() {
         {modules.filter((x) => x.type == "GEA").length > 0 ? (
           <>
             <section className="heading">
-              <p>You have completed: </p>
+              <p>GEA module completed: </p>
             </section>
             <div className="modules">
               {modules

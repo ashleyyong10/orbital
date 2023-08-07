@@ -47,7 +47,7 @@ function Cd() {
         {modules.filter((x) => x.type == "CD").length > 0 ? (
           <>
             <section className="heading">
-              <p>You have completed: </p>
+              <p>CD module completed: </p>
             </section>
             <div className="modules">
               {modules

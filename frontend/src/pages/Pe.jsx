@@ -47,7 +47,7 @@ function Pe() {
         {modules.filter((x) => x.type == "PE").length > 0 ? (
           <>
             <section className="heading">
-              <p>You have completed: </p>
+              <p>Programme Electives completed: </p>
             </section>
 
             <div className="modules">

@@ -47,7 +47,7 @@ function Gex() {
         {modules.filter((x) => x.type == "GEX").length > 0 ? (
           <>
             <section className="heading">
-              <p>You have completed: </p>
+              <p>GEX module completed: </p>
             </section>
             <div className="modules">
               {modules

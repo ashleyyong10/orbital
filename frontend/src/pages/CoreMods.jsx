@@ -47,7 +47,7 @@ function CoreMods() {
         {modules.filter((x) => x.type == "Core").length > 0 ? (
           <>
             <section className="heading">
-              <p>You have completed: </p>
+              <p>Core modules completed: </p>
             </section>
             <div className="modules">
               {modules

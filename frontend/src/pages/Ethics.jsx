@@ -47,7 +47,7 @@ function Ethics() {
         {modules.filter((x) => x.type == "Ethics").length > 0 ? (
           <>
             <section className="heading">
-              <p>You have completed: </p>
+              <p>Ethics module completed: </p>
             </section>
             <div className="modules">
               {modules

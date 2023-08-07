@@ -47,7 +47,7 @@ function Gei() {
         {modules.filter((x) => x.type == "GEI").length > 0 ? (
           <>
             <section className="heading">
-              <p>You have completed: </p>
+              <p>GEI module completed: </p>
             </section>
             <div className="modules">
               {modules

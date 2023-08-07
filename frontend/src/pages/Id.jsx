@@ -47,7 +47,7 @@ function Id() {
         {modules.filter((x) => x.type == "ID").length > 0 ? (
           <>
             <section className="heading">
-              <p>You have completed: </p>
+              <p>ID modules completed: </p>
             </section>
             <div className="modules">
               {modules

@@ -47,7 +47,7 @@ function Ges() {
         {modules.filter((x) => x.type == "GES").length > 0 ? (
           <>
             <section className="heading">
-              <p>You have completed: </p>
+              <p>GES module completed: </p>
             </section>
             <div className="modules">
               {modules

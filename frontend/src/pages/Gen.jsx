@@ -47,7 +47,7 @@ function Gen() {
         {modules.filter((x) => x.type == "GEN").length > 0 ? (
           <>
             <section className="heading">
-              <p>You have completed: </p>
+              <p>GEN module completed: </p>
             </section>
             <div className="modules">
               {modules

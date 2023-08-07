@@ -47,7 +47,7 @@ function Ue() {
         {modules.filter((x) => x.type == "UE").length > 0 ? (
           <>
             <section className="heading">
-              <p>You have completed: </p>
+              <p>Unrestricted electives completed: </p>
             </section>
 
             <div className="modules">

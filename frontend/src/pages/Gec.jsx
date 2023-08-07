@@ -47,7 +47,7 @@ function Gec() {
         {modules.filter((x) => x.type == "GEC").length > 0 ? (
           <>
             <section className="heading">
-              <p>You have completed: </p>
+              <p>GEC module completed: </p>
             </section>
             <div className="modules">
               {modules
